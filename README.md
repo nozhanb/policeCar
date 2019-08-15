@@ -16,3 +16,5 @@ Remember that there are four types of mode to be set but the two that are relave
 https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
 
 https://www.element14.com/community/community/designcenter/single-board-computers/blog/2019/05/21/nvidia-jetson-nano-developer-kit-pinout-and-diagrams
+
+https://pinout.xyz/pinout/uart#
