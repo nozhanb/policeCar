@@ -111,11 +111,17 @@ E: Sub-process /usr/bin/dpkg returned an error code (1)
 Follow [this](https://devtalk.nvidia.com/default/topic/1048021/cuda-setup-and-installation/error-depends-libcublas-dev-gt-10-1-0-105-but-it-is-not-installed-ubuntu-18-04/) instruction;
 
 1    sudo prime-select intel
+
 2    sudo mv /etc/apt/sources.list.d/cuda.list $HOME/cuda.list.bak
+
 3    sudo apt update
+
 4   sudo apt-get purge nvidia-*
+
 5    sudo apt-get -f install
+
 6    sudo apt update
+
 7    sudo apt autoremove
 
 Then you should be fine!
