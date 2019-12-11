@@ -20,8 +20,19 @@ Depending on whether you have the necessary python packages on your system you m
 
 By executing the above line the Darkflow looks inside the ___sample_image___ directory for test images. Next, it uses ___tiny-yolo.cfg___ configuration file located inside ___cfg___ directory. Then, it takes the ___tiny-yolo.weights___ located inside ___bin___ directory. If your system has GPU installed on it and enabled it will run on gpu. If the model ran successfully you would be able to see the results inside ___out___ directory located in ___sample_image___.
 
+# 1.1. Darkflow File System
+In order to run Darkflow you need to create the required file system. You need to create the following files and directories.
+- a ___bin___ directory
+- an ___image___ directory
+- 
+
+
+
 # 1.2. Darkflow Configuration File
-You can have access to several different configuration files inside ___cfg___ directory. There are several cfg files each with 
+You can have access to several different configuration files inside ___cfg___ directory. There are several cfg files in the cfg directory each for different YOLO flavor (including tiny-YOLO, YOLO-VOC, and YOLO; read this [page](https://pjreddie.com/darknet/yolo/) for a description of each flavor). Each cfg file contains the structure of the model with the parameters for traianing that model (e.g. learning rate, decay rate, momentum). For training a model this file and the path to the cfg file's location has to be given along with the --model flag (similar to the line of code above).
+
+# 1.3. Darkflow Weights
+
 
 
 
