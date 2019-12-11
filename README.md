@@ -10,7 +10,7 @@ In order to run the police car detection model the following parts are necessary
 The Darkflow model is the implementation of [YOLO](https://pjreddie.com/darknet/yolo/) (originally written in C) in Python/TensorFlow. For a detailed overview of Darkflow the reader is encouraged to check the Darkflow [github](https://github.com/thtrieu/darkflow) repository where the installtion process along with other useful information can be found. For a short instruction on Darkflow installtion please read section 1.1. For the rest of this tutorial it is assumed that the user is working on a linux system.
 
 # 1.1. Darkflow Installtion
-According to Darkflow [page](https://github.com/thtrieu/darkflow) there are three different ways to install Darkflow. In this tutorial we will follow the first method. First, you need to navigate to the Darkflow [page](https://github.com/thtrieu/darkflow). Next, click on the "clone or download" to download the entire repository as ".ZIP" file or use the url to clone the repository on your computer (you need to have git insalled on your computer). If zip method is used then unzip the contents of the file. After unziping the contents navigate to the "root" directory where the ___setup.py___ along with other files and directories(e.g. cfg directory) is located. On the command line (inside the root directory where the setup.py file is located) enter the following command (make sure you have python3 installed on your system):
+According to Darkflow [page](https://github.com/thtrieu/darkflow) there are three different ways to install Darkflow. In this tutorial we will follow the first method. First, you need to navigate to the Darkflow [page](https://github.com/thtrieu/darkflow). Next, click on the "clone or download" to download the entire repository as ".ZIP" file or use the url to clone the repository on your computer (you need to have ___git___ insalled on your computer). If zip method is used then unzip the contents of the file. After unziping the contents navigate to the "root" directory where the ___setup.py___ along with other files and directories(e.g. cfg directory) is located. On the command line (inside the root directory where the setup.py file is located) enter the following command (make sure you have python3 installed on your system):
 
 >python3 setup.py build_ext --inplace
 
@@ -32,6 +32,10 @@ In order to run Darkflow you need to create the required file system. You need t
 You can have access to several different configuration files inside ___cfg___ directory. There are several cfg files in the cfg directory each for different YOLO flavor (including tiny-YOLO, YOLO-VOC, and YOLO; read this [page](https://pjreddie.com/darknet/yolo/) for a description of each flavor). Each cfg file contains the structure of the model with the parameters for traianing that model (e.g. learning rate, decay rate, momentum). For training a model this file and the path to the cfg file's location has to be given along with the --model flag (similar to the line of code above).
 
 # 1.3. Darkflow Weights
+Depending on the model you are planning to use the appropriate weight file needs to be dowloaded from [this](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU) google drive. The same link can be accessed by navigating to the ___intro___ section of [this](https://pjreddie.com/darknet/yolo/) page. Once the right weight file has downloaded put it inside the ___bin___ directory so the flow can access to it (e.g. bin/tiny-yolo.weights).
+
+# 1.4. Darkflow Annotations, Classes
+
 
 
 
