@@ -12,7 +12,7 @@ The Darkflow model is the implementation of [YOLO](https://pjreddie.com/darknet/
 # 1.1. Darkflow installtion
 According to Darkflow [page](https://github.com/thtrieu/darkflow), there are three different ways to install Darkflow. In this tutorial we will follow the first method. First, you need to navigate to the Darkflow [page]. Next, click on the "clone or download" to download the entire repository as ".ZIP" file or use the url to clone the repository on your computer (you need to have git insalled on your computer). If zip method is used then unzip the contents of the file. After unziping the contents navigate to the "root" directory where the ___setup.py___ along with other files and directories(e.g. cfg directory) is located. On the comand line (inside the root directory where the setup.py file is located) enter the following command (make sure you have python3 installed on your system):
 
-python3 setup.py build_ext --inplace
+>python3 setup.py build_ext --inplace
 
 
 
