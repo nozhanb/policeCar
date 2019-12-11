@@ -37,6 +37,10 @@ Depending on the model you are planning to use the appropriate weight file needs
 # 1.4. Darkflow Annotations, Classes
 To make the 
 
+# 1.5. Training Darkflow on a Custom Dataset
+
+# You need to be more specific about the car data and training!!!
+
 
 
 # Pin input and ouput
