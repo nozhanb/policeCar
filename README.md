@@ -48,6 +48,9 @@ In order to train and run Darkflow on your own custom dataset, you need to creat
 |   +-- begin-with-the-crazy-ideas.textile
 |   +-- on-simplicity-in-technology.markdown
 
+
+
+
 The following shows the struction of this file in the root directory:
 '''
 root
