@@ -67,6 +67,11 @@ ___root___
 |___ ckpt
 
 
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
 
 
 # You need to be more specific about the car data and training!!!
