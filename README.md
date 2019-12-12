@@ -49,16 +49,25 @@ The following shows the struction of this file in the root directory:
 root
 |
 |___ annotations
-|              |
 |              |___ annotation.xml (your .xml files)
 |
 |___ bin
+|       |___ weight files (the original and renamed weight files)
 |
 |___ built_graph
+|              |___ .meta and .pb files
 |
 |___ cfg
+|      |___ .cfg files (the original and renamed one)
 |
 |___ ckpt
+|       |___ check point files will be stroed here
+|
+|___ images
+|         |___ your .png or .jpeg (here police car images)
+|
+|___ labels.txt
+
 ```
 
 
