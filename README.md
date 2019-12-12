@@ -44,34 +44,17 @@ In order to train and run Darkflow on your own custom dataset, you need to creat
 
 The following shows the struction of this file in the root directory:
 
-___root___
-
-|
-
-|___ annotations
-
-|
-
-|___ bin
-
-|
-
-|___ built_graph
-
-|
-
-|___ cfg
-
-|
-
-|___ ckpt
-
-
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+___root___ (or .)
++
++__ annotations
++
++___ bin
++
++___ built_graph
++
++___ cfg
++
++___ ckpt
 
 
 # You need to be more specific about the car data and training!!!
