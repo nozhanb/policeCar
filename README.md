@@ -96,10 +96,17 @@ Once the desired checkpoint has achived the following command has to be applied 
 
 >flow --model cfg/yolo.cfg --load bin/yolo.weights --savepb
 
-Remember that the .weight file in the command line above has to be replaced by ___.data___ file in the checkpoint (ckpt) directory. Please read the ___Save the built graph to a protobuf file (.pb)___ [here](https://github.com/thtrieu/darkflow) for more details.
+Remember that the ___.weight___ file in the command line above has to be replaced by desired ___.data___ file from the checkpoint (ckpt) directory. Please read the ___Save the built graph to a protobuf file (.pb)___ [here](https://github.com/thtrieu/darkflow) for more details.
 
+### 2.2.5 cfg Directory
+Put your configuration file inside this directory (e.g. yolov2-tiny-voc.cfg).
 
-# You need to be more specific about the car data and training!!!
+### 2.2.6 Images Directory
+This directory contains your training images (i.e. police car images).
+
+### 2.2.7 labels.txt file
+This file contains the label/class of the objects to be detected (i.e. police car)
+
 
 # 3. Jetson Nano Developer Kit
 You can find a good introduction on Jetson nano develper kit and the installation process [here](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#intro). 
