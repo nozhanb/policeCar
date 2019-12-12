@@ -9,7 +9,7 @@ In order to run the police car detection model the following parts are necessary
 # 1. Darkflow
 The Darkflow model is the implementation of [YOLO](https://pjreddie.com/darknet/yolo/) (originally written in C) in Python/TensorFlow. For a detailed overview of Darkflow the reader is encouraged to check the Darkflow [github](https://github.com/thtrieu/darkflow) repository where the installtion process along with other useful information can be found. For a short instruction on Darkflow installtion please read section 1.1. For the rest of this tutorial it is assumed that the user is working on a linux system.
 
-# 1.1. Darkflow Installation
+## 1.1. Darkflow Installation
 According to Darkflow [page](https://github.com/thtrieu/darkflow) there are three different ways to install Darkflow. In this tutorial we will follow the first method. First, you need to navigate to the Darkflow [page](https://github.com/thtrieu/darkflow). Next, click on the "clone or download" to download the entire repository as ".ZIP" file or use the url to clone the repository on your computer (you need to have ___git___ insalled on your computer). If zip method is used then unzip the contents of the file. After unziping the contents navigate to the "root" directory where the ___setup.py___ along with other files and directories(e.g. cfg directory) is located. On the command line (inside the root directory where the setup.py file is located) enter the following command (make sure you have python3 installed on your system):
 
 >python3 setup.py build_ext --inplace
@@ -20,20 +20,21 @@ Depending on whether you have the necessary python packages on your system you m
 
 Flow is the executive command. By executing the above line the Darkflow looks inside the ___sample_image___ directory for test images. Next, it uses ___tiny-yolo.cfg___ configuration file located inside ___cfg___ directory. Then, it takes the ___tiny-yolo.weights___ located inside ___bin___ directory. If your system has GPU installed on it and enabled it will run on gpu. If the model ran successfully you would be able to see the results inside ___out___ directory located in ___sample_image___.
 
-# 1.2. Darkflow Configuration File
+## 1.2. Darkflow Configuration File
 You can have access to several different configuration files inside ___cfg___ directory. There are several cfg files in the cfg directory each for a different YOLO flavor (including tiny-YOLO, YOLO-VOC, and YOLO; read this [page](https://pjreddie.com/darknet/yolo/) for a description of each flavor). Each cfg file contains the structure of the model along with the parameters for traianing that model (e.g. learning rate, decay rate, momentum). For training a model the cfg file and the path to the cfg file's location has to be given along with the --model flag (similar to the code above).
 
-# 1.3. Darkflow Weights
+## 1.3. Darkflow Weights
 Depending on the model you are planning to use the appropriate weight file needs to be downloaded from [this](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU) google drive. (The same link can be accessed by navigating to the ___intro___ section of [this](https://pjreddie.com/darknet/yolo/) page.) Once the right weight file has downloaded put it inside the ___bin___ directory so the flow can access to it (e.g. bin/tiny-yolo.weights).
 
-# 1.4. Darkflow Annotations, Classes
+## 1.4. Darkflow Annotations, Classes
 To create your annotation file you need to follow the YOLO annotation format which requires a ___.xml___ format. For the purpose of the car detection model [labelImg](https://github.com/tzutalin/labelImg) was used. LabelImg will allow you to store annotations and class names in both ___.txt___ and ___.xml___ formats.
 
 [comment]: <> (# 1.5. Training Darkflow on a Custom Dataset)
 
 
-# 2. Darkflow Car Detection File System
-In order to train and run Darkflow on your own custom dataset, you need to create the required file system. The followings are the required files and directories where they should be put inside the root directory [Correct this part ]
+# 2. Darkflow Car Detection
+In order to train and run Darkflow on your own custom dataset, you need to have the required files and directories [Correct this part ]
+
 - ___annotations___ directory
 - ___bin___ directory
 - ___built_graph___ directory
@@ -42,7 +43,7 @@ In order to train and run Darkflow on your own custom dataset, you need to creat
 - ___images___ directory
 - ___labels.txt___ file 
 
-# 2.1 Darkflow Car Detection File System
+## 2.1 Darkflow Car Detection File System
 The following shows the structure of the Darkflow police car detection model:
 
 ```bash
@@ -69,10 +70,10 @@ root
 |___ labels.txt (here only police car label/class)
 
 ```
-# 2.1.1 Annotaitons Directory
+### 2.1.1 Annotaitons Directory
 Where you keep the annotaions files. In case of this model there are as many .xml files as there are images of police cars. Each .xml file gives the coordinates of the ground truth box. For instance, example_01.xml files contains the coordiantes of the ground truth box around a police car in the image 01.
 
-## 2.1.2 Bin Directory
+### 2.1.2 Bin Directory
 Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details. 
 
 ### 2.2.3 Built_graph Directory
