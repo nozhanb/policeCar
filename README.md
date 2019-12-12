@@ -74,10 +74,26 @@ root
 Where you keep the annotaions files. In case of this model there are as many .xml files as there are images of police cars. Each .xml file gives the coordinates of the ground truth box. For instance, example_01.xml files contains the coordiantes of the ground truth box around a police car in the image 01.
 
 ### 2.1.2 Bin Directory
-Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details. 
+Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th part of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details. 
 
-### 2.2.3 Built_graph Directory
+### 2.2.3 CKPT Directory
+This the ___checkpoint___ directory. During the traingin session Darkflow will store a group of four different files inside this directory. This process happens repeatedly after a given number of epochs. An example is given below;
 
+1- ___yolov2-tiny-voc_c2-250.data-00000-of-00001___ 
+2- ___yolov2-tiny-voc_c2-250.index___
+3- ___yolov2-tiny-voc_c2-250.meta___ 
+4- ___yolov2-tiny-voc_c2-250.profile___
+
+For the rest of this tutorial we need two of these files. First, the file with ___.data___ which contains the updated weights after 250 epochs. And the ___.meta___ file. See ___Training new model___ section [here](https://github.com/thtrieu/darkflow) for further details on how to test your model from a given checkpoint. 
+
+### 2.2.4 Built_graph Directory
+Once the desired checkpoint has achived the following command has to be applied to convert the ___.data___ file to a ___protobuf file (.pb)___. The .pb file is the weight file that will be used in Jetson nano developer kit.
+
+>flow --model cfg/yolo-new.cfg --load -1 --savepb
+
+>flow --model cfg/yolo.cfg --load bin/yolo.weights --savepb
+
+Remember that the .weight file in the command line above has to be replaced by ___.data___ file in the checkpoint (ckpt) directory. Please read the ___Save the built graph to a protobuf file (.pb)___ [here](https://github.com/thtrieu/darkflow) for more details.
 
 
 # You need to be more specific about the car data and training!!!
