@@ -42,21 +42,15 @@ In order to train and run Darkflow on your own custom dataset, you need to creat
 - ___images___ directory
 - ___labels.txt___ file 
 
-.
-+-- _config.yml
-+-- _drafts
-|   +-- begin-with-the-crazy-ideas.textile
-|   +-- on-simplicity-in-technology.markdown
-
-
-
 
 The following shows the struction of this file in the root directory:
 
 ```bash
 root
 |
-|---annotations
+|___ annotations
+|              |
+|              |___ annotation.xml (your .xml files)
 |
 |___ bin
 |
