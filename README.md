@@ -42,8 +42,8 @@ In order to train and run Darkflow on your own custom dataset, you need to creat
 - ___images___ directory
 - ___labels.txt___ file 
 
-
-The following shows the struction of this file in the root directory:
+# 2.1 Darkflow Car Detection File System
+The following shows the structure of the Darkflow police car detection model:
 
 ```bash
 root
@@ -66,9 +66,17 @@ root
 |___ images
 |         |___ your .png or .jpeg (here police car images)
 |
-|___ labels.txt
+|___ labels.txt (here only police car label/class)
 
 ```
+# 2.1.1 Annotaitons Directory
+Where you keep the annotaions files. In case of this model there are as many .xml files as there are images of police cars. Each .xml file gives the coordinates of the ground truth box. For instance, example_01.xml files contains the coordiantes of the ground truth box around a police car in the image 01.
+
+# 2.1.2 Bin Directory
+Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details. 
+
+# 2.2.3 Built_graph Directory
+
 
 
 # You need to be more specific about the car data and training!!!
