@@ -20,14 +20,6 @@ Depending on whether you have the necessary python packages on your system you m
 
 Flow is the executive command. By executing the above line the Darkflow looks inside the ___sample_image___ directory for test images. Next, it uses ___tiny-yolo.cfg___ configuration file located inside ___cfg___ directory. Then, it takes the ___tiny-yolo.weights___ located inside ___bin___ directory. If your system has GPU installed on it and enabled it will run on gpu. If the model ran successfully you would be able to see the results inside ___out___ directory located in ___sample_image___.
 
-# 1.1. Darkflow File System
-In order to train and run Darkflow on your own custom dataset, you need to create the required file system. The followings are the required files and directories where they should be put inside the root directory [Correct this part ]
-- a ___bin___ directory
-- an ___image___ directory
-- 
-
-
-
 # 1.2. Darkflow Configuration File
 You can have access to several different configuration files inside ___cfg___ directory. There are several cfg files in the cfg directory each for a different YOLO flavor (including tiny-YOLO, YOLO-VOC, and YOLO; read this [page](https://pjreddie.com/darknet/yolo/) for a description of each flavor). Each cfg file contains the structure of the model along with the parameters for traianing that model (e.g. learning rate, decay rate, momentum). For training a model the cfg file and the path to the cfg file's location has to be given along with the --model flag (similar to the code above).
 
@@ -35,9 +27,15 @@ You can have access to several different configuration files inside ___cfg___ di
 Depending on the model you are planning to use the appropriate weight file needs to be downloaded from [this](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU) google drive. (The same link can be accessed by navigating to the ___intro___ section of [this](https://pjreddie.com/darknet/yolo/) page.) Once the right weight file has downloaded put it inside the ___bin___ directory so the flow can access to it (e.g. bin/tiny-yolo.weights).
 
 # 1.4. Darkflow Annotations, Classes
-To make the 
+To create your annotation file you need to follow the YOLO annotation format which requires a ___.xml___ format. You can find the 
 
 # 1.5. Training Darkflow on a Custom Dataset
+
+
+# 2. Darkflow Car Detection File System
+In order to train and run Darkflow on your own custom dataset, you need to create the required file system. The followings are the required files and directories where they should be put inside the root directory [Correct this part ]
+- a ___bin___ directory
+- an ___image___ directory
 
 # You need to be more specific about the car data and training!!!
 
