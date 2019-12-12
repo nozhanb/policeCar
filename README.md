@@ -45,8 +45,8 @@ In order to train and run Darkflow on your own custom dataset, you need to creat
 The following shows the struction of this file in the root directory:
 '''
 ___root___ (or .)
-+
-+__ annotations
+|
+|__ annotations
 +
 +___ bin
 +
