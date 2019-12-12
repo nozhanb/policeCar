@@ -80,8 +80,11 @@ Where you keep your weight files. Notice that the Darkflow requires you to provi
 This the ___checkpoint___ directory. During the traingin session Darkflow will store a group of four different files inside this directory. This process happens repeatedly after a given number of epochs. An example is given below;
 
 1- ___yolov2-tiny-voc_c2-250.data-00000-of-00001___ 
+
 2- ___yolov2-tiny-voc_c2-250.index___
+
 3- ___yolov2-tiny-voc_c2-250.meta___ 
+
 4- ___yolov2-tiny-voc_c2-250.profile___
 
 For the rest of this tutorial we need two of these files. First, the file with ___.data___ which contains the updated weights after 250 epochs. And the ___.meta___ file. See ___Training new model___ section [here](https://github.com/thtrieu/darkflow) for further details on how to test your model from a given checkpoint. 
