@@ -27,10 +27,12 @@ You can have access to several different configuration files inside ___cfg___ di
 Depending on the model you are planning to use the appropriate weight file needs to be downloaded from [this](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU) google drive. (The same link can be accessed by navigating to the ___intro___ section of [this](https://pjreddie.com/darknet/yolo/) page.) Once the right weight file has downloaded put it inside the ___bin___ directory so the flow can access to it (e.g. bin/tiny-yolo.weights).
 
 # 1.4. Darkflow Annotations, Classes
-To create your annotation file you need to follow the YOLO annotation format which requires a ___.xml___ format. You can find the 
+To create your annotation file you need to follow the YOLO annotation format which requires a ___.xml___ format. For the purpose of the car detection model [labelImg](https://github.com/tzutalin/labelImg) was used. LabelImg will allow you to store annotations and class names in both ___.txt___ and ___.xml___ formats.
 
 # 1.5. Training Darkflow on a Custom Dataset
 
+[comment]: <> (This is a comment, it will not be included)
+<> (This is a comment, it will not be included)
 
 # 2. Darkflow Car Detection File System
 In order to train and run Darkflow on your own custom dataset, you need to create the required file system. The followings are the required files and directories where they should be put inside the root directory [Correct this part ]
