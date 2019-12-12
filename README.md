@@ -34,14 +34,38 @@ To create your annotation file you need to follow the YOLO annotation format whi
 
 # 2. Darkflow Car Detection File System
 In order to train and run Darkflow on your own custom dataset, you need to create the required file system. The followings are the required files and directories where they should be put inside the root directory [Correct this part ]
-- a ___bin___ directory
-- an ___image___ directory
+- ___annotations___ directory
+- ___bin___ directory
+- ___built_graph___ directory
+- ___cfg___ directory
+- ___ckpt___ directory
+- ___images___ directory
+- ___labels.txt___ file 
+
+The following shows the struction of this file in the root directory:
+
+___root___
+|
+|___ annotations
+|
+|___ bin
+|
+|___ built_graph
+|
+|___ cfg
+|
+|___ ckpt
+
+
+
 
 # You need to be more specific about the car data and training!!!
 
+# 3. Jetson Nano Developer Kit
+You can find a good introduction on Jetson nano develper kit and the installation process [here](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#intro). 
 
 
-# Pin input and ouput
+# 3.1 Pin input and ouput
 You need to install Jetson.GPIO (sudo pip install Jetson.GPIO). If you try to import Jetson.GPIO you will recevie a permission error. In order to mitigate the error one has to cd to the "/sys/class/gpio" and change the permission of the two files "export" and "unexport" from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). Once you print out the result of the GPIO.getmode(), you will probably get 10, 11 or other digits. 10 here means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) link.
 
 After installing the Jetson.GPIO library follow the instructions on [this](https://github.com/NVIDIA/jetson-gpio) page (under the Setting User Permissions section). You need to create a new group, add your username to the group and cp a ".rules" file to the given path in the /etc/... (see the instructions). Finally, you need to restart the Jetson so the permissions take effect. If you do not follow the instruction one has to change all the files permissions manually and some cases the termial freezes. You save your self alot of time by following the instructions on permissions. 
