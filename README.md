@@ -55,8 +55,8 @@ The following shows the struction of this file in the root directory:
 
 ```bash
 root
-|
-|-- annotations
++
++-- _annotations
 ```
 
 +
