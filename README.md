@@ -43,7 +43,7 @@ In order to train and run Darkflow on your own custom dataset, you need to creat
 - ___labels.txt___ file 
 
 The following shows the struction of this file in the root directory:
-
+'''
 ___root___ (or .)
 +
 +__ annotations
@@ -56,6 +56,7 @@ ___root___ (or .)
 +
 +___ ckpt
 
+'''
 
 # You need to be more specific about the car data and training!!!
 
