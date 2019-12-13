@@ -77,7 +77,7 @@ Where you keep the annotaions files. In case of this model there are as many .xm
 Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th part of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details. 
 
 ### 2.2.3 CKPT Directory
-This the ___checkpoint___ directory. During the traingin session Darkflow will store a group of four different files inside this directory. This process happens repeatedly after a given number of epochs. An example is given below;
+This is the ___checkpoint___ directory. During the traingin session Darkflow will store a group of four different files inside this directory. This process happens repeatedly after a given number of epochs. An example is given below;
 
 1- ___yolov2-tiny-voc_c2-250.data-00000-of-00001___ 
 
@@ -99,7 +99,12 @@ Once the desired checkpoint has achived the following command has to be applied 
 Remember that the ___.weight___ file in the command line above has to be replaced by desired ___.data___ file from the checkpoint (ckpt) directory. Please read the ___Save the built graph to a protobuf file (.pb)___ [here](https://github.com/thtrieu/darkflow) for more details.
 
 ### 2.2.5 cfg Directory
-Put your configuration file inside this directory (e.g. yolov2-tiny-voc.cfg).
+Put your configuration file inside this directory (e.g. yolov2-tiny-voc.cfg). There are two lines that need to be changed when it comes to training on custom datasets; number of ___classes___ and number of ___filters___. Before making any changes to the any files remember that, similar to the weight files, a copy of the desired configuration file with a different name needs to be made and placed in the cfg directory. For instance, one may decide to use the original ___yolov2-tiny-voc.cfg___ file. Then, one has to make another copy of the same file with a different name, e.g. ___yolov2-tiny-voc_c2.cfg___, and place it along with the original file in the cfg directory. Next, comes the filter and class changes. These changes need to be done to the ___renamed___ configuration file. At the end of the renamed file you can find both classes and filters parameters. Place the number of classes you are going to train your model on (in case of police car the original value is replaced with 1). However, for the numner of filters you have to follow the following equation;
+
+> num * (classes + 5)
+
+Where one has to replace ___num___ with 5 and classes with the number classes you are training on. For example, in case of Police car detection model the number of classes is 1 and num is 5 which according to the equation the number of filters becomes 5*6 = 30. Thus,  the original value of the filter in the renamed cfg file will be replaced with 30 (from 125 to 30). Please read ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details.
+
 
 ### 2.2.6 Images Directory
 This directory contains your training images (i.e. police car images).
@@ -107,6 +112,12 @@ This directory contains your training images (i.e. police car images).
 ### 2.2.7 labels.txt file
 This file contains the label/class of the objects to be detected (i.e. police car)
 
+## 2.3 Training the Car Detection Model
+Once you have build the required file system and place the necessary files inside the correct directory you can run the following command to start traingin your model. 
+
+>flow --model cfg/yolo-new.cfg --load bin/tiny-yolo.weights --train --gpu 1.0
+
+The above line uses yolo-new configuration file along with tiny-yolo weights and runs on a GPU. For a complete list of manditory and optional flags insert the following command on the command line: ???????? [add the command]
 
 # 3. Jetson Nano Developer Kit
 You can find a good introduction on Jetson nano develper kit and the installation process [here](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#intro). 
