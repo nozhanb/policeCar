@@ -103,8 +103,7 @@ Put your configuration file inside this directory (e.g. yolov2-tiny-voc.cfg). Th
 
 > num * (classes + 5)
 
-Where one has to replace ___num___ with 5 and classes with the number classes you are training on. For example, in case of Police car detection model the number of classes is 1 and num is 5 which according to the equation the number of filters becomes 5*6 = 30. Thus,  the original value of the filter in the renamed cfg file will be replaced with 30 (from 125 to 30). Please read ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details.
-
+Where one has to replace ___num___ with 5 and classes with the number classes you are training on. For example, in case of Police car detection model the number of classes is 1 and num is 5 which according to the equation the number of filters becomes 5*6 = 30. Thus,  the original value of the filter in the renamed cfg file will be replaced with 30 (from 125 to 30). The user has to use the modified and renamed configuration file when training their model!  Please read ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details.
 
 ### 2.2.6 Images Directory
 This directory contains your training images (i.e. police car images).
@@ -112,12 +111,14 @@ This directory contains your training images (i.e. police car images).
 ### 2.2.7 labels.txt file
 This file contains the label/class of the objects to be detected (i.e. police car)
 
-## 2.3 Training the Car Detection Model
-Once you have build the required file system and place the necessary files inside the correct directory you can run the following command to start traingin your model. 
+## 2.3 Training and Inference
+Once you have built the required file system and place the necessary files inside the correct directory you can run the following command to start traingin your model. 
 
 >flow --model cfg/yolo-new.cfg --load bin/tiny-yolo.weights --train --gpu 1.0
 
-The above line uses yolo-new configuration file along with tiny-yolo weights and runs on a GPU. For a complete list of manditory and optional flags insert the following command on the command line: ???????? [add the command]
+The above line uses yolo-new configuration file along with tiny-yolo weights and runs on a GPU. For a complete list of manditory and optional flags type in the following command on the command line: ???????? [add the command]
+
+
 
 # 3. Jetson Nano Developer Kit
 You can find a good introduction on Jetson nano develper kit and the installation process [here](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#intro). 
