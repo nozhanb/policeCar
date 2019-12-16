@@ -172,6 +172,7 @@ It is very likely that after importing the library you will get a ___permission_
 
 It should print out either ___10___ or ___11___ or other values. Here, 10 means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) for further details on what each value means. After installing the Jetson.GPIO library follow the instructions [here](https://github.com/NVIDIA/jetson-gpio#setting-user-permissions) under the ___Setting User Permissions section___. You need to create a new group, add your username to the group and copy a ___.rules___ file to the given path in the ___/etc/udev/rules.d/___ (see the instructions). Finally, you need to restart the Jetson so the permissions take effect. If you do not follow the instructions one has to change all the file permissions manually. You will save yourself time by following the instructions on permissions!
 
+Note that there are four types of mode to be set but the two modes that are relavent to this work are ___BOARD___ and ___CBM___. Depending on the mode you are in, pins can be accessed by their original numbers (written next to each pin on the header) or non-origianl numbers. Setting mode to ___BOARD___ you should use pin numbering on the board (e.g. 12 for pin 12) while setting mode to ___CBM___ requires gpio numbering (e.g. 79 for pin 12). Read [this](read [this](https://github.com/NVIDIA/jetson-gpio#2-pin-numbering) for more details) for further details. For the pupose of this work pin 16 was used as the GPIO pin. Note that some other GPIO pins may not work (still not sure why this is the case) so try different GPIO (even 5V and GND) pins!
 
 
 ## 4.? Bread Board Layout
@@ -182,8 +183,6 @@ The image below shows the layout of the bread board.
 
 
 Initially, the gpio 12 was used (on Jetson's expansion header) but it turned out to be the wrong pin. When I turned the videoplayer on and clicked on the play botton the led would turn on! And when clicked on the pause botton the led would turn off after a few second! And this process can be repeated as many times as you click on the play botton. I set the pin 12 as an output inside the predict.py file (/usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)!?. I am not sure why there is a connection between pin 12 and the videoplayer!?!
-
-Remember that there are four types of mode to be set but the two that are relavent for this work are "BOARD" and "CBM" (read [this](https://github.com/NVIDIA/jetson-gpio) link for more details). The important thing to remember is to if you set your mode to BOARD you should use pin numbering on the board (e.g. 12, 26) and when CBM is the choice gpio numbering must be used (e.g. "79" for 12).
 
 # Useful Links
 https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
