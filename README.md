@@ -1,4 +1,4 @@
-# policeCar
+# PoliceCar
 A computer vision model for (Norwegian) police car detection.
 
 # Installation
@@ -121,7 +121,24 @@ The above line uses yolo-new configuration file along with tiny-yolo weights and
 
 
 # 3. Jetson Nano Developer Kit
-You can find a good introduction on Jetson nano develper kit and the installation process [here](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#intro). 
+
+## 3.1 Installation
+You can find a good introduction on seting up your Jetson nano develper kit [here](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#intro), however, below you can find a very short summary of the steps you need to take to prepare your Jetson device.
+
+1- You need to have a microSD card
+
+2- Download ___Jetson Nano Developer Kit SD Card Image___ [here](https://developer.nvidia.com/jetson-nano-sd-card-image-r3223)
+
+3- Write the image to your microSD card using [Etcher](https://www.balena.io/etcher/)(pick the one that suits your opperating system)
+
+4- After writing the image to your microSD card insert the card into your Jetson device
+
+5- Power on and you are good to go!
+
+
+## 3.2 Running Your Model on Jetson
+
+The operating system on the Jetson is a linux operting system. Next, you need to provide internet connection to your device. Once that is done you need to install all the necessary python packages. Once python packages are installed you need to paste your 
 
 
 # 3.1 Pin input and ouput
