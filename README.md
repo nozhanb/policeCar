@@ -137,12 +137,22 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 
 ## 3.2 Running Your Model on Jetson
-
-The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install the Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (also described in [section 1.1 ]()). However, this time you do need to create the same file system structure. This time you only need to have the ___built_graph___, and ___sample_img___ directories where you need to transfer the created ___.meta___ and ___.pb___ files from your local machine onto the Jetson and inside the ___built_graph___ directory. Your test images have to be stored inside the sample_img directory on the Jetson machine. Once you have install the Darkflow on Jetson and transfered the files and test images you can use the following command to make prediction on your test images. 
+The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install the Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (also described in [section 1.1 ](https://github.com/nozhanb/policeCar/blob/master/README.md#11-darkflow-installation)). However, this time you do need to create the same file system structure. This time you only need to have the ___built_graph___, and ___sample_img___ directories where you need to transfer the created ___.meta___ and ___.pb___ files from your local machine onto the Jetson and inside the ___built_graph___ directory. Your test images have to be stored inside the sample_img directory on the Jetson machine. Once you have install the Darkflow on Jetson and transfered the files and test images you can use the following command to make prediction on your test images. 
 
 > flow --pbLoad built_graph/yolo.pb --metaLoad built_graph/yolo.meta --imgdir sample_img/
 
 You can find and read more about the command above [here](https://github.com/thtrieu/darkflow#save-the-built-graph-to-a-protobuf-file-pb).
+
+## 3.3 Real-Time Police Car Detection
+In order to do real-time car detection you need to connect a usb camera to Jetson. It would be more convenient to install a camera software to enable Jetson to detect the camera. For the purpse of this work ___guvcview___ was used (you can use any softwares!). You can install it by simply typing;
+
+> sudo apt-get install guvcview
+
+Once you have this software installed and after connecting your usb camera, the camera should be detected by Jetson and a window should pop up on the screen showing the live camera (if the camera was not detected open the guvcview and try to find the camera from inside the gucview). Finally, to do real-time detection you need to type in the following command from inside the root directory of the Darkflow (where the built_graph and sample_img directories are located);
+
+> flow --pbLoad built_graph/yolo.pb --metaLoad built_graph/yolo.meta --demo camera
+
+Please read [this](https://github.com/thtrieu/darkflow#cameravideo-file-demo) section for more details.
 
 # 3.1 Pin input and ouput
 You need to install Jetson.GPIO (sudo pip install Jetson.GPIO). If you try to import Jetson.GPIO you will recevie a permission error. In order to mitigate the error one has to cd to the "/sys/class/gpio" and change the permission of the two files "export" and "unexport" from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). Once you print out the result of the GPIO.getmode(), you will probably get 10, 11 or other digits. 10 here means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) link.
