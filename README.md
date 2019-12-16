@@ -160,21 +160,32 @@ Please read [this](https://github.com/thtrieu/darkflow#cameravideo-file-demo) se
 # 4. Jetson Nano Developer Kit 40-Pin Expansion Header
 In this section a general overview of the expansion header of the Jetson will be given. The expansion header will be used for sending signal to an LED.
 
-## 4.1 
+## 4.1 Expansion Header's Pins
+In order to send signal from Jetson to the LED one needs to knwo which pins on the expansion header to use. Generally, the pins on the expansion header fall into several different categories (e.g. ground, 5v constant power). For the purpose of this work we will be dealing with three different pins; GND (i.e. ground), 5V (constant power), and GPIO (i.e. general purpose input/output) pins. To have a better understanding of the location and the functionality of each pin read [this](https://pinout.xyz/pinout/uart#
+) and [this](https://www.element14.com/community/community/designcenter/single-board-computers/blog/2019/05/21/nvidia-jetson-nano-developer-kit-pinout-and-diagrams). Note that the pin layout of the Jetson follows that of the Raspbery Pi. (The reader is encouraged to do more research on the similarity of the Raspberry pi's 3 and Jetson's expansion headers!) In order to interact with the pins (i.e. send/receive signals to/from the pins) one has to install the ___Jetson.GPIO___ library. To do so, run the following command;
 
-The image below shows the lay out of the bread board. 
+> sudo pip install Jetson.GPIO
+
+It is very likely that after tring to import the library you will get a ___permission___ error. In order to mitigate the error navigate to the ___/sys/class/gpio___ and change the permission of the ___export___ and ___unexport___ files from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). To test that things work the way they should type in the following command on the command line in a terminal ad hit enter;
+
+> GPIO.getmode()
+
+It should print out either ___10___ or ___11___ or other values. Here, 10 means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) for further details on what each value means. 
+
+
+## 4.? Bread Board Layout
+The image below shows the layout of the bread board. 
 
 <!---![breadBoard](BreadBoardLayout.jpg)--->
 <img src="BreadBoardLayout.jpg" width="1000" height="400">
 
-# 3.1 Pin input and ouput
-You need to install Jetson.GPIO (sudo pip install Jetson.GPIO). If you try to import Jetson.GPIO you will recevie a permission error. In order to mitigate the error one has to cd to the "/sys/class/gpio" and change the permission of the two files "export" and "unexport" from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). Once you print out the result of the GPIO.getmode(), you will probably get 10, 11 or other digits. 10 here means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) link.
+If you try to import Jetson.GPIO you will recevie a permission error. In order to mitigate the error one has to cd to the "/sys/class/gpio" and change the permission of the two files "export" and "unexport" from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). Once you have printed out the result of the GPIO.getmode(), you will probably get 10, 11 or other digits. Here, 10 means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) for further details.
 
-After installing the Jetson.GPIO library follow the instructions on [this](https://github.com/NVIDIA/jetson-gpio) page (under the Setting User Permissions section). You need to create a new group, add your username to the group and cp a ".rules" file to the given path in the /etc/... (see the instructions). Finally, you need to restart the Jetson so the permissions take effect. If you do not follow the instruction one has to change all the files permissions manually and some cases the termial freezes. You save your self alot of time by following the instructions on permissions. 
+After installing the Jetson.GPIO library follow the instructions on [this](https://github.com/NVIDIA/jetson-gpio) page (under the Setting User Permissions section). You need to create a new group, add your username to the group and cp a ".rules" file to the given path in the /etc/... (see the instructions). Finally, you need to restart the Jetson so the permissions take effect. If you do not follow the instruction one has to change all the files permissions manually and some cases the termial freezes. You save yourself a lot of time by following the instructions on permissions. 
 
-Initially, I used the gpio 12 on Jetson but it turned out to be the wrong pin. When I turned the videoplayer on and clicked on the play botton the led would turn on! And when clicked on the pause botton the led would turn off after a few second! And this process can be repeated as many times as you click on the play botton. I set the pin 12 as an output inside the predict.py file (/usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)!?. I am not sure why there is a connection between pin 12 and the videoplayer!?!
+Initially, the gpio 12 was used (on Jetson's expansion header) but it turned out to be the wrong pin. When I turned the videoplayer on and clicked on the play botton the led would turn on! And when clicked on the pause botton the led would turn off after a few second! And this process can be repeated as many times as you click on the play botton. I set the pin 12 as an output inside the predict.py file (/usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)!?. I am not sure why there is a connection between pin 12 and the videoplayer!?!
 
-Remember that there are four types of mode to be set but the two that are relavent for this work are "BOARD" and "CBM" (read [this](https://github.com/NVIDIA/jetson-gpio) link for more details). The import thing to remember is to if you set your mode to BOARD you should use pin numbering on the board (e.g. 12, 26) and when CBM is the choice gpio numbering must be used (e.g. "79" for 12).
+Remember that there are four types of mode to be set but the two that are relavent for this work are "BOARD" and "CBM" (read [this](https://github.com/NVIDIA/jetson-gpio) link for more details). The important thing to remember is to if you set your mode to BOARD you should use pin numbering on the board (e.g. 12, 26) and when CBM is the choice gpio numbering must be used (e.g. "79" for 12).
 
 # Useful Links
 https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
