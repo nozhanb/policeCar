@@ -140,7 +140,7 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install the Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (similar to [section]() ) on Jetson you need to create a similar file system structure (see section ___2.1___). However, this time you only need to provide a few directories including; ___built_graph___, 
 
-[create an anchor](#1-1-darkflow-installation)
+[create an anchor](#1.1.darkflow-installation)
 
 
 # 3.1 Pin input and ouput
