@@ -166,11 +166,12 @@ In order to send signal from Jetson to the LED one needs to knwo which pins on t
 
 > sudo pip install Jetson.GPIO
 
-It is very likely that after tring to import the library you will get a ___permission___ error. In order to mitigate the error navigate to the ___/sys/class/gpio___ and change the permission of the ___export___ and ___unexport___ files from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). To test that things work the way they should type in the following command on the command line in a terminal ad hit enter;
+It is very likely that after importing the library you will get a ___permission___ error. In order to mitigate the error navigate to the ___/sys/class/gpio___ and change the permission of the ___export___ and ___unexport___ files from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). To test whether things work correctly type in the following command on the command line in a terminal and hit enter;
 
 > GPIO.getmode()
 
-It should print out either ___10___ or ___11___ or other values. Here, 10 means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) for further details on what each value means. 
+It should print out either ___10___ or ___11___ or other values. Here, 10 means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) for further details on what each value means. After installing the Jetson.GPIO library follow the instructions [here](https://github.com/NVIDIA/jetson-gpio#setting-user-permissions) under the ___Setting User Permissions section___. You need to create a new group, add your username to the group and copy a ___.rules___ file to the given path in the ___/etc/udev/rules.d/___ (see the instructions). Finally, you need to restart the Jetson so the permissions take effect. If you do not follow the instructions one has to change all the file permissions manually. You will save yourself time by following the instructions on permissions!
+
 
 
 ## 4.? Bread Board Layout
@@ -179,9 +180,6 @@ The image below shows the layout of the bread board.
 <!---![breadBoard](BreadBoardLayout.jpg)--->
 <img src="BreadBoardLayout.jpg" width="1000" height="400">
 
-If you try to import Jetson.GPIO you will recevie a permission error. In order to mitigate the error one has to cd to the "/sys/class/gpio" and change the permission of the two files "export" and "unexport" from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). Once you have printed out the result of the GPIO.getmode(), you will probably get 10, 11 or other digits. Here, 10 means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) for further details.
-
-After installing the Jetson.GPIO library follow the instructions on [this](https://github.com/NVIDIA/jetson-gpio) page (under the Setting User Permissions section). You need to create a new group, add your username to the group and cp a ".rules" file to the given path in the /etc/... (see the instructions). Finally, you need to restart the Jetson so the permissions take effect. If you do not follow the instruction one has to change all the files permissions manually and some cases the termial freezes. You save yourself a lot of time by following the instructions on permissions. 
 
 Initially, the gpio 12 was used (on Jetson's expansion header) but it turned out to be the wrong pin. When I turned the videoplayer on and clicked on the play botton the led would turn on! And when clicked on the pause botton the led would turn off after a few second! And this process can be repeated as many times as you click on the play botton. I set the pin 12 as an output inside the predict.py file (/usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)!?. I am not sure why there is a connection between pin 12 and the videoplayer!?!
 
