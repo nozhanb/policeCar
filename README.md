@@ -9,7 +9,7 @@ In order to run the police car detection model the following parts are necessary
 # 1. Darkflow
 The Darkflow model is the implementation of [YOLO](https://pjreddie.com/darknet/yolo/) (originally written in C) in Python/TensorFlow. For a detailed overview of Darkflow the reader is encouraged to check the Darkflow [github](https://github.com/thtrieu/darkflow) repository where the installtion process along with other useful information can be found. For a short instruction on Darkflow installtion please read section 1.1. For the rest of this tutorial it is assumed that the user is working on a linux system.
 
-## 1-1- Darkflow Installation
+## 1.1 Darkflow Installation
 According to Darkflow [page](https://github.com/thtrieu/darkflow) there are three different ways to install Darkflow. In this tutorial we will follow the first method. First, you need to navigate to the Darkflow [page](https://github.com/thtrieu/darkflow). Next, click on the "clone or download" to download the entire repository as ".ZIP" file or use the url to clone the repository on your computer (you need to have ___git___ insalled on your computer). If zip method is used then unzip the contents of the file. After unziping the contents navigate to the "root" directory where the ___setup.py___ along with other files and directories(e.g. cfg directory) is located. On the command line (inside the root directory where the setup.py file is located) enter the following command (make sure you have python3 installed on your system):
 
 >python3 setup.py build_ext --inplace
@@ -20,13 +20,13 @@ Depending on whether you have the necessary python packages on your system you m
 
 Flow is the executive command. By executing the above line the Darkflow looks inside the ___sample_image___ directory for test images. Next, it uses ___tiny-yolo.cfg___ configuration file located inside ___cfg___ directory. Then, it takes the ___tiny-yolo.weights___ located inside ___bin___ directory. If your system has GPU installed on it and enabled it will run on gpu. If the model ran successfully you would be able to see the results inside ___out___ directory located in ___sample_image___.
 
-## 1.2. Darkflow Configuration File
+## 1.2 Darkflow Configuration File
 You can have access to several different configuration files inside ___cfg___ directory. There are several cfg files in the cfg directory each for a different YOLO flavor (including tiny-YOLO, YOLO-VOC, and YOLO; read this [page](https://pjreddie.com/darknet/yolo/) for a description of each flavor). Each cfg file contains the structure of the model along with the parameters for traianing that model (e.g. learning rate, decay rate, momentum). For training a model the cfg file and the path to the cfg file's location has to be given along with the --model flag (similar to the code above).
 
-## 1.3. Darkflow Weights
+## 1.3 Darkflow Weights
 Depending on the model you are planning to use the appropriate weight file needs to be downloaded from [this](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU) google drive. (The same link can be accessed by navigating to the ___intro___ section of [this](https://pjreddie.com/darknet/yolo/) page.) Once the right weight file has downloaded put it inside the ___bin___ directory so the flow can access to it (e.g. bin/tiny-yolo.weights).
 
-## 1.4. Darkflow Annotations, Classes
+## 1.4 Darkflow Annotations, Classes
 To create your annotation file you need to follow the YOLO annotation format which requires a ___.xml___ format. For the purpose of the car detection model [labelImg](https://github.com/tzutalin/labelImg) was used. LabelImg will allow you to store annotations and class names in both ___.txt___ and ___.xml___ formats.
 
 [comment]: <> (# 1.5. Training Darkflow on a Custom Dataset)
@@ -138,10 +138,11 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 ## 3.2 Running Your Model on Jetson
 
-The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install the Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (similar to [section]() ) on Jetson you need to create a similar file system structure (see section ___2.1___). However, this time you only need to provide a few directories including; ___built_graph___, 
+The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install the Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (also described in [section 1.1 ]()). However, this time you do need to create the same file system structure. This time you only need to have the ___built_graph___, and ___sample_img___ directories where you need to transfer the created ___.meta___ and ___.pb___ files from your local machine onto the Jetson and inside the ___built_graph___ directory. Your test images have to be stored inside the sample_img directory on the Jetson machine. Once you have install the Darkflow on Jetson and transfered the files and test images you can use the following command to make prediction on your test images. 
 
-[create an anchor](#1-1-darkflow-installation)
+> flow --pbLoad built_graph/yolo.pb --metaLoad built_graph/yolo.meta --imgdir sample_img/
 
+You can find and read more about the command above [here](https://github.com/thtrieu/darkflow#save-the-built-graph-to-a-protobuf-file-pb).
 
 # 3.1 Pin input and ouput
 You need to install Jetson.GPIO (sudo pip install Jetson.GPIO). If you try to import Jetson.GPIO you will recevie a permission error. In order to mitigate the error one has to cd to the "/sys/class/gpio" and change the permission of the two files "export" and "unexport" from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). Once you print out the result of the GPIO.getmode(), you will probably get 10, 11 or other digits. 10 here means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) link.
