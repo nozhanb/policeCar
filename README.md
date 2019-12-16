@@ -1,4 +1,4 @@
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif | width=100)
+<!---![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)--->
 
 
 # PoliceCar
