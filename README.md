@@ -49,22 +49,22 @@ The following shows the structure of the Darkflow police car detection model:
 ```bash
 root
 |
-|___ annotations
-|              |___ annotation.xml (your .xml files)
+|___ /annotations
+|               |___ annotation.xml (your .xml files)
 |
-|___ bin
+|___ /bin
 |       |___ weight files (the original and renamed weight files)
 |
-|___ built_graph
+|___ /built_graph
 |              |___ .meta and .pb files
 |
-|___ cfg
+|___ /cfg
 |      |___ .cfg files (the original and renamed one)
 |
-|___ ckpt
+|___ /ckpt
 |       |___ check point files will be stroed here
 |
-|___ images
+|___ /images
 |         |___ your .png or .jpeg (here police car images)
 |
 |___ labels.txt (here only police car label/class)
