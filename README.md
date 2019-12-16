@@ -129,7 +129,7 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 2- Download ___Jetson Nano Developer Kit SD Card Image___ [here](https://developer.nvidia.com/jetson-nano-sd-card-image-r3223)
 
-3- Write the image to your microSD card using [Etcher](https://www.balena.io/etcher/)(pick the one that suits your opperating system)
+3- Write the image to your microSD card using [Etcher](https://www.balena.io/etcher/)(pick the one that suits your operating system)
 
 4- After writing the image to your microSD card insert the card into your Jetson device
 
@@ -138,8 +138,9 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 ## 3.2 Running Your Model on Jetson
 
-The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed on Jetson you need to create a similar file system structure (see [this](https://github.com/thtrieu/darkflow#cameravideo-file-demo) section).
+The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install the Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (similar to [section]() ) on Jetson you need to create a similar file system structure (see section ___2.1___). However, this time you only need to provide a few directories including; ___built_graph___, 
 
+[create an anchor](#darkflow-installation)
 
 
 # 3.1 Pin input and ouput
