@@ -1,3 +1,6 @@
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+
 # PoliceCar
 A computer vision model for (Norwegian) police car detection.
 
