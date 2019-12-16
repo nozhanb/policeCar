@@ -1,6 +1,6 @@
 <!---![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)--->
 <!---![Alt Text](police_00100.png)--->
-<img src="police_00100.png" width="200" height="50">
+<img src="police_00100.png" width="1000" height="500">
 
 # PoliceCar
 A computer vision model for (Norwegian) police car detection.
