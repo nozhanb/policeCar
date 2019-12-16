@@ -138,9 +138,9 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 ## 3.2 Running Your Model on Jetson
 
-The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to create a similar 
+The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed on Jetson you need to create a similar file system structure (see [this](https://github.com/thtrieu/darkflow#cameravideo-file-demo) section).
 
-[Test](https://github.com/void32)
+
 
 # 3.1 Pin input and ouput
 You need to install Jetson.GPIO (sudo pip install Jetson.GPIO). If you try to import Jetson.GPIO you will recevie a permission error. In order to mitigate the error one has to cd to the "/sys/class/gpio" and change the permission of the two files "export" and "unexport" from only write to both read and write for all users (use sudo chmod 666 export and the same for unexport). Once you print out the result of the GPIO.getmode(), you will probably get 10, 11 or other digits. 10 here means GPIO.BOARD and 11 means GPIO.BCM. Check [this](https://stackoverflow.com/questions/31687465/gpio-getmode-in-python-on-raspberry-pi-gets-different-value-than-on-wiki/31688886#31688886) link.
