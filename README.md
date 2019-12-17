@@ -1,13 +1,8 @@
 <!---![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)--->
 <!---![police](police_00100.png)--->
 <img src="police_00100.png" width="1000" height="250">
-# PoliceCar
-A computer vision model for (Norwegian) police car detection.
-
-# Installation
-In order to run the police car detection model the following parts are necessary 
-1. Darkflow
-2. Jetson nano developer kit
+# DarkFlow Police Car Detection
+<!---A computer vision model for police car detection.--->
 
 # 1. Darkflow
 The Darkflow model is the implementation of [YOLO](https://pjreddie.com/darknet/yolo/) (originally written in C) in Python/TensorFlow. For a detailed overview of Darkflow the reader is encouraged to check the Darkflow [github](https://github.com/thtrieu/darkflow) repository where the installtion process along with other useful information can be found. For a short instruction on Darkflow installtion please read section 1.1. For the rest of this tutorial it is assumed that the user is working on a linux system.
