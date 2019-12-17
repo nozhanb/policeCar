@@ -64,7 +64,7 @@ root
 |       |___ check point files will be stroed here
 |
 |___ /images
-|         |___ your .png or .jpeg (here police car images)
+|         |___ your .png or .jpeg (place your training images here)
 |
 |___ labels.txt (here only police car label/class)
 
