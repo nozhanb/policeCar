@@ -128,7 +128,7 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 2- Download ___Jetson Nano Developer Kit SD Card Image___ [here](https://developer.nvidia.com/jetson-nano-sd-card-image-r3223)
 
-3- Write the image to your microSD card using [Etcher](https://www.balena.io/etcher/)(pick the one that suits your operating system)
+3- Write the image to your microSD card using [Etcher](https://www.balena.io/etcher/) (pick the one that suits your operating system)
 
 4- After writing the image to your microSD card insert the card into your Jetson device
 
@@ -136,7 +136,7 @@ You can find a good introduction on seting up your Jetson nano develper kit [her
 
 
 ## 3.2 Running Your Model on Jetson
-The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install the Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (also described in [section 1.1 ](https://github.com/nozhanb/policeCar/blob/master/README.md#11-darkflow-installation)). However, this time you do need to create the same file system structure. This time you only need to have the ___built_graph___, and ___sample_img___ directories where you need to transfer the created ___.meta___ and ___.pb___ files from your local machine onto the Jetson and inside the ___built_graph___ directory. Your test images have to be stored inside the sample_img directory on the Jetson machine. Once you have install the Darkflow on Jetson and transfered the files and test images you can use the following command to make prediction on your test images. 
+The operating system on the Jetson is a linux operting system so to install the necessary python packages you can simply use the  ___pip___ command. Once you have the python packages installed you need to install Darkflow on Jetson following one of the three methods provided [here](https://github.com/thtrieu/darkflow#getting-started) (also described in [section 1.1 ](https://github.com/nozhanb/policeCar/blob/master/README.md#11-darkflow-installation)). However, this time you do need to create the same file system structure. This time you only need to have the ___built_graph___, and ___sample_img___ directories where you need to transfer the created ___.meta___ and ___.pb___ files from your local machine onto the Jetson and inside the ___built_graph___ directory. Your test images have to be stored inside the sample_img directory on the Jetson machine. Once you have install the Darkflow on Jetson and transfered the files and test images you can use the following command to make prediction on your test images. 
 
 > flow --pbLoad built_graph/yolo.pb --metaLoad built_graph/yolo.meta --imgdir sample_img/
 
