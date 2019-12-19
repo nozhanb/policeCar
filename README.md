@@ -178,7 +178,8 @@ The image below shows the layout of the bread board.
 <img src="BreadBoardLayout.jpg" width="1000" height="400">
 
 
-Initially, the gpio 12 was used (on Jetson's expansion header) but it turned out to be the wrong pin. When I turned the videoplayer on and clicked on the play botton the led would turn on! And when clicked on the pause botton the led would turn off after a few second! And this process can be repeated as many times as you click on the play botton. I set the pin 12 as an output inside the predict.py file (/usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)!?. I am not sure why there is a connection between pin 12 and the videoplayer!?! This needs to fixed!!!
+
+Initially, the gpio 12 was used (on Jetson's expansion header) but it turned out to be the wrong pin (I am not sure why)! When I turned the videoplayer on and clicked on the play button the led would turn on! And when clicked on the pause button the led would turn off after a few second! And this process can be repeated as many times as you click on the play button. I am not sure why there is a connection between pin 12 and the videoplayer!? I set the pin 12 as an output inside the predict.py file (/usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)!?. ! This needs to fixed!!!
 
 # Useful Links
 https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
