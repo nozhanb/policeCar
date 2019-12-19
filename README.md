@@ -183,6 +183,12 @@ Initially, the gpio 12 was used (on Jetson's expansion header) but it did not wo
 
 In order to make the LED work you need to add the right resistor to the circut. A resistor with high value will not let enough current pass through the circut and the LED will remain off while a resistor with too little resistance will damage the LED as the current that will reach the LED will be more than what it can take. For the purpose of this work a resistor with $135 k\Omega$ resistance was used. Note that in the image above you can see the color bands on the resistor which indicate the resistance of the resistor. Also, the legs of the LED are of different lengh with longer one beign positive (not always the case)! So one must place the LED in the bread board correctly. You can find more details on LEDs andpicking the right resistor [here](https://www.westfloridacomponents.com/blog/led-basics-how-to-tell-which-lead-is-positive-or-negative/) and [here](https://www.evilmadscientist.com/2012/resistors-for-leds/). 
 
+## 4.3 Darkflow and GPIO Pins
+
+As the end goal is to send a signal to the LED once a police car is detected one has to make some changes to the Darkflow's ___predict.py___ file. This file is responisble for creating a bounding box around the detected object (here the police car). For the purpose of this work we add a few lines of code to this file so everytime the code tries to draw a bounding around the police car it, also, send a signal to the ondicated pin. The path to this file is given below;
+
+> /usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)
+
 
 When I turned the videoplayer on and clicked on the play button the led would turn on! And when clicked on the pause button the led would turn off after a few second! And this process can be repeated as many times as you click on the play button. I am not sure why there is a connection between pin 12 and the videoplayer!? I set the pin 12 as an output inside the predict.py file (/usr/local/lib/python3.6/dist-packages/darkflow/net/yolov2/predict.py)!?. ! This needs to fixed!!!
 
