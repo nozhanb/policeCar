@@ -115,9 +115,9 @@ Once you have built the required file system and place the necessary files insid
 
 >flow --model cfg/yolo-new.cfg --load bin/tiny-yolo.weights --train --gpu 1.0
 
-The above line uses yolo-new configuration file along with tiny-yolo weights and runs on a GPU. For a complete list of manditory and optional flags type in the following command on the command line: ???????? [add the command]
+The above line uses yolo-new configuration file along with tiny-yolo weights and runs on a GPU. For a complete list of manditory and optional flags type in the following command on the command line;
 
-
+> flow --h
 
 # 3. Jetson Nano Developer Kit
 
@@ -181,7 +181,7 @@ Initially, the gpio 12 was used (on Jetson's expansion header) but it did not wo
 
 ### 4.2.1 Resistor and LED
 
-In order to make the LED work you need to add the right resistor to the circut. A resistor with high value will not let enough current pass through the circut and the LED will remain off while a resistor with too little resistance will damage the LED as the current that will reach the LED will be more than what it can take. For the purpose of this work a resistor with $135 k\Omega$ resistance was used. Note that in the image above you can see the color bands on the resistor which indicate the resistance of the resistor. Also, the legs of the LED are of different lengh with longer one beign positive (not always the case)! So one must place the LED in the bread board correctly. You can find more details on LEDs andpicking the right resistor [here](https://www.westfloridacomponents.com/blog/led-basics-how-to-tell-which-lead-is-positive-or-negative/) and [here](https://www.evilmadscientist.com/2012/resistors-for-leds/). 
+In order to make the LED work you need to add the right resistor to the circut. A resistor with high value will not let enough current pass through the circut and the LED will remain off while a resistor with too little resistance will damage the LED as the current that will reach the LED will be more than what it can take. For the purpose of this work a resistor with ___135 kilo ohm___ resistance was used. Note that in the image above you can see the color bands on the resistor which indicate the resistance of the resistor. Also, the legs of the LED are of different lengh with longer one beign positive (not always the case)! So one must place the LED in the bread board correctly. You can find more details on LEDs andpicking the right resistor [here](https://www.westfloridacomponents.com/blog/led-basics-how-to-tell-which-lead-is-positive-or-negative/) and [here](https://www.evilmadscientist.com/2012/resistors-for-leds/). 
 
 ## 4.3 Darkflow and GPIO Pins
 
