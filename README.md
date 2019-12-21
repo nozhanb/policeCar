@@ -32,7 +32,7 @@ To create your annotation file you need to follow the YOLO annotation format whi
 
 
 # 2. Darkflow Car Detection
-In order to train and run Darkflow on your own custom dataset, you need to have the required files and directories [Correct this part ]
+In order to train and run Darkflow on your own custom dataset, you need to have the required files and directories [make sure these are the required directories].
 
 - ___annotations___ directory
 - ___bin___ directory
