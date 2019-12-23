@@ -15,7 +15,7 @@ According to Darkflow [page](https://github.com/thtrieu/darkflow) there are thre
 
 Depending on whether you have the necessary python packages on your system you may receive error messages! ___Cython___ and ___opencv-python___ are the two most likely packages that you may get error messages about. Make sure you have them installed and python has access to them. Once the setup.py has run successfully, you can test the Darkflow model by exceuting the following command in the root directory.
 
->flow --imgdir sample_img/ --model cfg/tiny-yolo.cfg --load bin/tiny-yolo.weights --gpu 1.0
+> flow --imgdir sample_img/ --model cfg/tiny-yolo.cfg --load bin/tiny-yolo.weights --gpu 1.0
 
 ___Flow___ is an executive command. Flow should be set in your computer's path (if it is not set by default). By executing the above line the Darkflow looks inside the ___sample_image___ directory for test images. Next, it uses ___tiny-yolo.cfg___ configuration file located inside ___cfg___ directory. Then, it takes the ___tiny-yolo.weights___ located inside ___bin___ directory. If your system has GPU installed on it and enabled it will run on gpu. If the model ran successfully you would be able to see the results inside ___out___ directory located in ___sample_image___.
 
