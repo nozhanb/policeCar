@@ -73,7 +73,7 @@ root
 Where you keep the annotaions files. In case of this model there are as many .xml files as there are images of police cars. Each .xml file gives the coordinates of the ground truth box. For instance, example_01.xml files contains the coordiantes of the ground truth box around a police car in the image 01.
 
 ### 2.1.2 Bin Directory
-Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th part of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details. 
+Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th part of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow#training-on-your-own-dataset) for more details. 
 
 ### 2.2.3 CKPT Directory
 This is the ___checkpoint___ directory. During the traingin session Darkflow will store a group of four different files inside this directory. This process happens repeatedly after a given number of epochs. An example is given below;
@@ -86,7 +86,7 @@ This is the ___checkpoint___ directory. During the traingin session Darkflow wil
 
 4- ___yolov2-tiny-voc_c2-250.profile___
 
-For the rest of this tutorial we need two of these files. First, the file with ___.data___ which contains the updated weights after 250 epochs. And the ___.meta___ file. See the ___Training new model___ section [here](https://github.com/thtrieu/darkflow) for further details on how to test your model from a given checkpoint. 
+For the rest of this tutorial we need two of these files. First, the file with ___.data___ which contains the updated weights after 250 epochs. And the ___.meta___ file. See the ___Training new model___ section [here](https://github.com/thtrieu/darkflow#training-new-model) for further details on how to test your model from a given checkpoint. 
 
 ### 2.2.4 Built_graph Directory
 Once the desired checkpoint has achived the following command has to be applied to convert the ___.data___ file to a ___protobuf file (.pb)___. The .pb file is the weight file that will be used in Jetson nano developer kit.
@@ -95,14 +95,14 @@ Once the desired checkpoint has achived the following command has to be applied 
 
 >flow --model cfg/yolo.cfg --load bin/yolo.weights --savepb
 
-Remember that the ___.weight___ file in the command line above has to be replaced by desired ___.data___ file from the checkpoint (ckpt) directory. Please read the ___Save the built graph to a protobuf file (.pb)___ [here](https://github.com/thtrieu/darkflow) for more details.
+Remember that the ___.weight___ file in the command line above has to be replaced by desired ___.data___ file from the checkpoint (ckpt) directory. Please read the ___Save the built graph to a protobuf file (.pb)___ [here](https://github.com/thtrieu/darkflow#save-the-built-graph-to-a-protobuf-file-pb) for more details.
 
 ### 2.2.5 cfg Directory
 Put your configuration file inside this directory (e.g. yolov2-tiny-voc.cfg). There are two lines that need to be changed when it comes to training on custom datasets; number of ___classes___ and number of ___filters___. Before making any changes to the any files remember that, similar to the weight files, a copy of the desired configuration file with a different name needs to be made and placed in the cfg directory. For instance, one may decide to use the original ___yolov2-tiny-voc.cfg___ file. Then, one has to make another copy of the same file with a different name, e.g. ___yolov2-tiny-voc_c2.cfg___, and place it along with the original file in the cfg directory. Next, comes the filter and class changes. These changes need to be done to the ___renamed___ configuration file. At the end of the renamed file you can find both classes and filters parameters. Place the number of classes you are going to train your model on (in case of police car the original value is replaced with 1). However, for the numner of filters you have to follow the following equation;
 
 > num * (classes + 5)
 
-Where one has to replace ___num___ with 5 and classes with the number classes you are training on. For example, in case of Police car detection model the number of classes is 1 and num is 5 which according to the equation the number of filters becomes 5*6 = 30. Thus,  the original value of the filter in the renamed cfg file will be replaced with 30 (from 125 to 30). The user has to use the modified and renamed configuration file when training their model!  Please read ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow) for more details.
+Where one has to replace ___num___ with 5 and classes with the number classes you are training on. For example, in case of Police car detection model the number of classes is 1 and num is 5 which according to the equation the number of filters becomes 5*6 = 30. Thus,  the original value of the filter in the renamed cfg file will be replaced with 30 (from 125 to 30). The user has to use the modified and renamed configuration file when training their model!  Please read ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow#training-on-your-own-dataset) for more details.
 
 ### 2.2.6 Images Directory
 This directory contains your training images (i.e. police car images).
