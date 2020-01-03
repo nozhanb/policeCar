@@ -70,7 +70,7 @@ root
 
 ```
 ### 2.1.1 Annotaitons Directory
-Where you keep the annotaions files. In case of this model there are as many .xml files as there are images of police cars. Each .xml file gives the coordinates of the ground truth box. For instance, example_01.xml files contains the coordiantes of the ground truth box around a police car in the image 01.
+Where you keep the annotaions files. In case of this model there are as many ___.xml___ files as there are images of police cars. Each .xml file gives the coordinates of the ground truth box. For instance, example_01.xml file contains the coordiantes of the ground truth box around a police car in the image 01.
 
 ### 2.1.2 Bin Directory
 Where you keep your weight files. Notice that the Darkflow requires you to provide it with two identical weight files with different file names. For examples if you are using tiny-yolo model, you have to keep the original name of the weight file that is ___yolov2-tiny-voc.weights___ while changing the name of the second weight file to something different (e.g. ___yolov2-tiny-c2.weights___). Please read the 5th part of the ___Training on your own dataset___ section [here](https://github.com/thtrieu/darkflow#training-on-your-own-dataset) for more details. 
