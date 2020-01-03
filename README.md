@@ -86,7 +86,7 @@ This is the ___checkpoint___ directory. During the traingin session Darkflow wil
 
 4- ___yolov2-tiny-voc_c2-250.profile___
 
-For the rest of this tutorial we need two of these files. First, the file with ___.data___ which contains the updated weights after 250 epochs. And the ___.meta___ file. See the ___Training new model___ section [here](https://github.com/thtrieu/darkflow#training-new-model) for further details on how to test your model from a given checkpoint. 
+For the rest of this tutorial we need two of these files. First, the ___.data___ file which contains the updated weights after 250 epochs. And the ___.meta___ file. See the ___Training new model___ section [here](https://github.com/thtrieu/darkflow#training-new-model) for further details on how to test your model from a given checkpoint. 
 
 ### 2.2.4 Built_graph Directory
 Once the desired checkpoint has achived the following command has to be applied to convert the ___.data___ file to a ___protobuf file (.pb)___. The .pb file is the weight file that will be used in Jetson nano developer kit.
