@@ -11,7 +11,7 @@ The Darkflow is the implementation of [YOLO](https://pjreddie.com/darknet/yolo/)
 ## 1.1 Darkflow Installation
 According to Darkflow [page](https://github.com/thtrieu/darkflow) there are three different ways to install Darkflow. In this tutorial we will follow the first method. First, you need to navigate to the Darkflow [page](https://github.com/thtrieu/darkflow). Next, click on the "clone or download" to download the entire repository as a ".ZIP" file or use the url to clone the repository on your computer (you need to have ___git___ insalled on your computer). Next, unzip the contents of the file. After unziping the contents navigate to the "root" directory where the ___setup.py___ along with other files and directories(e.g. cfg directory) is located. On the command line (inside the root directory where the setup.py file is located) enter the following command (make sure you have python3 installed on your system):
 
->python3 setup.py build_ext --inplace
+> python3 setup.py build_ext --inplace
 
 Depending on whether you have the necessary python packages on your system you may receive error messages! ___Cython___ and ___opencv-python___ are the two most likely packages that you may get error messages about. Make sure you have them installed and python has access to them. Once the setup.py has run successfully, you can test the Darkflow model by exceuting the following command in the root directory.
 
@@ -91,9 +91,9 @@ For the rest of this tutorial we need two of these files. First, the ___.data___
 ### 2.2.4 Built_graph Directory
 Once the desired checkpoint has achived the following command has to be applied to convert the ___.data___ file to a ___protobuf file (.pb)___. The .pb file is the weight file that will be used in Jetson nano developer kit.
 
->flow --model cfg/yolo-new.cfg --load -1 --savepb
+> flow --model cfg/yolo-new.cfg --load -1 --savepb
 
->flow --model cfg/yolo.cfg --load bin/yolo.weights --savepb
+> flow --model cfg/yolo.cfg --load bin/yolo.weights --savepb
 
 Remember that the ___.weight___ file in the command line above has to be replaced by desired ___.data___ file from the checkpoint (ckpt) directory. Please read the ___Save the built graph to a protobuf file (.pb)___ [here](https://github.com/thtrieu/darkflow#save-the-built-graph-to-a-protobuf-file-pb) for more details.
 
@@ -113,7 +113,7 @@ This file contains the label/class of the objects to be detected (i.e. police ca
 ## 2.3 Training and Inference
 Once you have built the required file system and place the necessary files inside the correct directory you can run the following command to start traingin your model. 
 
->flow --model cfg/yolo-new.cfg --load bin/tiny-yolo.weights --train --gpu 1.0
+> flow --model cfg/yolo-new.cfg --load bin/tiny-yolo.weights --train --gpu 1.0
 
 The above line uses yolo-new configuration file along with tiny-yolo weights and runs on a GPU. For a complete list of manditory and optional flags type in the following command on the command line;
 
